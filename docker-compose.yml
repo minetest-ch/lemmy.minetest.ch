@@ -26,7 +26,7 @@ services:
      - terminator
     environment:
      LEMMY_UI_LEMMY_INTERNAL_HOST: lemmy:8536
-     LEMMY_UI_CUSTOM_HTML_HEADER: "<script src=\"/assets/oauth-button.js\"></script>"
+     LEMMY_UI_CUSTOM_HTML_HEADER: "<script src=\"/oauth-login/assets/oauth-button.js\"></script>"
     restart: always
     labels:
       - "promtail=true"
