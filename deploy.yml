@@ -1,0 +1,28 @@
+---
+- hosts: all
+  remote_user: root
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Copy files
+      synchronize:
+        src: ./
+        dest: "{{ compose_directory }}/"
+
+    - name: chmod pictrs data dir
+      file:
+        path: "{{ compose_directory }}/data/pictrs"
+        state: directory
+        mode: '777'
+
+    - name: Create and start services
+      community.general.docker_compose:
+        project_src: "{{ compose_directory }}"
+        pull: yes
+        build: yes
+        remove_orphans: yes
+
+    - name: reload nginx config
+      shell:
+        cmd: "docker-compose exec lemmy-nginx nginx -s reload"
+        chdir: "{{ compose_directory }}"

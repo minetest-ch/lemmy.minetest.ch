@@ -1,0 +1,26 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    concurrency: deployment
+    steps:
+    - uses: actions/checkout@v4
+    - name: Prepare environment
+      run: |
+        id
+        eval $(ssh-agent -s)
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        ssh-keyscan styx.rudin.io >> ~/.ssh/known_hosts
+        chmod -R 700 ~/.ssh
+        ansible-galaxy collection install community.general
+    - name: Run ansible
+      run: |
+        ansible-playbook -i hosts --private-key ~/.ssh/id_rsa deploy.yml

@@ -1,0 +1,12 @@
+{
+  hostname: "lemmy.minetest.ch"
+  pictrs: {
+    url: "http://pictrs:8080/"
+  }
+  email: {
+    smtp_server: "apheleia.rudin.io:587"
+    smtp_login: "lemmy@minetest.ch"
+    smtp_from_address: "lemmy@minetest.ch"
+    tls_type: "starttls"
+  }
+}

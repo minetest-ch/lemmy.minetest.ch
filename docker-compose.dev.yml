@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  lemmy-nginx:
+   ports:
+    - "8000:8536"
+
+  postgres:
+    volumes:
+      - "postgres_data:/var/lib/postgresql/data"
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  pictrs:
+    volumes:
+      - "pictrs_data:/mnt"
+
+  oauth_companion:
+    environment:
+      BASE_URL: "http://localhost:8000"
+      COOKIE_SECURE: "false"
+
+volumes:
+ postgres_data: {}
+ pictrs_data: {}
