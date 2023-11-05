@@ -7,6 +7,11 @@ body {
   background-position: center;
 }
 
+#app .container-lg {
+  background-color: #131313;
+  border-radius: 5px;
+}
+
 /*!
  * Bootstrap  v5.3.0 (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors
