@@ -26,3 +26,4 @@ docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
 # License
 
 * `/assets/default_obsidian.png` CC-BY-SA 3.0 https://github.com/minetest/minetest_game
+* `/assets/nc_terrain_stone.png` MIT https://gitlab.com/sztest/nodecore/
