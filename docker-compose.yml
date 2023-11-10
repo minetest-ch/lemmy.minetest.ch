@@ -4,6 +4,9 @@ services:
   lemmy:
     image: dessalines/lemmy:0.18.5
     restart: always
+    networks:
+     - default
+     - terminator
     volumes:
       - ./lemmy.hjson:/config/config.hjson:Z
     env_file:
@@ -16,27 +19,29 @@ services:
 
   lemmy-ui:
     image: dessalines/lemmy-ui:0.18.5
+    restart: always
+    networks:
+     - default
+     - terminator
     volumes:
       - ./extra_themes:/app/extra_themes
     depends_on:
       - lemmy
-    networks:
-     # external "loop" for /pictrs, needs to be on the "terminator" network
-     - default
-     - terminator
     environment:
      LEMMY_UI_LEMMY_INTERNAL_HOST: lemmy:8536
      LEMMY_UI_CUSTOM_HTML_HEADER: "<script src=\"/oauth-login/assets/oauth-button.js\"></script>"
-    restart: always
     labels:
       - "promtail=true"
 
   pictrs:
     image: asonix/pictrs:0.4.3
+    restart: always
     user: 991:991
+    networks:
+     - default
+     - terminator
     volumes:
       - ./data/pictrs:/mnt:Z
-    restart: always
     labels:
       - "promtail=true"
 
