@@ -2,6 +2,7 @@
   hostname: "lemmy.minetest.ch"
   pictrs: {
     url: "http://pictrs:8080/"
+    api_key: "enter"
   }
   email: {
     smtp_server: "apheleia.rudin.io:587"
