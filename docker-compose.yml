@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   lemmy:
-    image: dessalines/lemmy:0.18.5
+    image: dessalines/lemmy:0.19.0
     restart: always
     networks:
      - default
@@ -18,7 +18,7 @@ services:
       - "promtail=true"
 
   lemmy-ui:
-    image: dessalines/lemmy-ui:0.18.5
+    image: dessalines/lemmy-ui:0.19.0
     restart: always
     networks:
      - default
@@ -34,7 +34,7 @@ services:
       - "promtail=true"
 
   pictrs:
-    image: asonix/pictrs:0.4.3
+    image: asonix/pictrs:0.4.7
     restart: always
     user: 991:991
     networks:
@@ -46,7 +46,7 @@ services:
       - "promtail=true"
 
   postgres:
-    image: postgres:16.0
+    image: postgres:16.1
     env_file:
      - .env
     volumes:
