@@ -18,7 +18,7 @@ services:
       - "promtail=true"
 
   lemmy-ui:
-    image: dessalines/lemmy-ui:0.19.1
+    image: dessalines/lemmy-ui:0.19.3
     restart: always
     networks:
      - default
