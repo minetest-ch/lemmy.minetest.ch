@@ -34,7 +34,7 @@ services:
       - "promtail=true"
 
   pictrs:
-    image: asonix/pictrs:0.5.0
+    image: asonix/pictrs:0.5.4
     restart: always
     user: 991:991
     networks:
