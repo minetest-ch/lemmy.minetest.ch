@@ -56,7 +56,7 @@ services:
       - "promtail=true"
 
   oauth_companion:
-    image: ghcr.io/minetest-ch/lemmy-oauth-companion:1.0.1
+    image: ghcr.io/minetest-ch/lemmy-oauth-companion:1.0.2
     environment:
       LEMMY_URL: "http://lemmy:8536"
       BASE_URL: "https://lemmy.minetest.ch"
