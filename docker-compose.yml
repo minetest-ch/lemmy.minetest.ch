@@ -71,7 +71,7 @@ services:
       - "promtail=true"
 
   lemmy-nginx:
-    image: nginx:1.25.5
+    image: nginx:1.27.0
     volumes:
       - "./nginx.conf:/etc/nginx/nginx.conf:ro,Z"
       - "./assets:/assets"
