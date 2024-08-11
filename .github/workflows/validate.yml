@@ -10,5 +10,5 @@ jobs:
     - name: validate config
       run: |
         touch .env
-        docker-compose config -q
-        docker-compose pull
+        docker compose config -q
+        docker compose pull
