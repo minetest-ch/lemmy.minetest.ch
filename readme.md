@@ -1,6 +1,8 @@
 
 Minetest Lemmy infrastructure repo
 
+# :warning: This service is now [retired](https://forum.luanti.org/viewtopic.php?p=440958#p440958) :warning:
+
 # Themes
 
 Themes are located in the `extra_themes` directory and the assets in `assets` (see `minetest-darkly.css` for an example)
